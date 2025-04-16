@@ -97,49 +97,37 @@ hamburger.addEventListener("click", () => {
   }
 });
 
-// Modal de login/registro
-const authModal = document.getElementById("auth-modal");
-const loginBtn = document.getElementById("login-btn");
-const closeAuth = document.getElementById("close-auth");
-const switchToRegister = document.getElementById("switch-to-register");
-const authTitle = document.getElementById("auth-title");
-const authSubmit = document.getElementById("auth-submit");
-const switchAuthText = document.querySelector(".switch-auth");
+document.addEventListener('DOMContentLoaded', () => {
+  // Navbar responsive toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-// Estado: login o register
-let isLogin = true;
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
 
-loginBtn.addEventListener("click", () => {
-  authModal.classList.remove("hidden");
+  // Mostrar modal de inicio de sesión
+  const loginBtn = document.getElementById('login-btn');
+  const authModal = document.getElementById('auth-modal');
+  const closeAuth = document.getElementById('close-auth');
+
+  if (loginBtn && authModal && closeAuth) {
+    loginBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      authModal.classList.remove('hidden');
+    });
+
+    closeAuth.addEventListener('click', () => {
+      authModal.classList.add('hidden');
+    });
+
+    // También cerramos el modal si se hace clic fuera del contenido
+    window.addEventListener('click', (event) => {
+      if (event.target === authModal) {
+        authModal.classList.add('hidden');
+      }
+    });
+  }
 });
-
-closeAuth.addEventListener("click", () => {
-  authModal.classList.add("hidden");
-});
-
-// Cambiar entre login y registro
-switchToRegister.addEventListener("click", (e) => {
-  e.preventDefault();
-  isLogin = !isLogin;
-
-  authTitle.textContent = isLogin ? "Iniciar Sesión" : "Crear Cuenta";
-  authSubmit.textContent = isLogin ? "Entrar" : "Registrarse";
-  switchAuthText.innerHTML = isLogin
-    ? '¿No tienes cuenta? <a href="#" id="switch-to-register">Crear una</a>'
-    : '¿Ya tienes cuenta? <a href="#" id="switch-to-register">Iniciar sesión</a>';
-
-  // Reasignar evento porque se reemplaza el innerHTML
-  document.getElementById("switch-to-register").addEventListener("click", (e) => {
-    e.preventDefault();
-    switchToRegister.click();
-  });
-});
-
-// Por ahora, solo previene recarga
-document.getElementById("auth-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  alert(isLogin ? "Iniciando sesión..." : "Creando cuenta...");
-  authModal.classList.add("hidden");
-});
-
-  

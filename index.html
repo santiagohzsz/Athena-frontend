@@ -18,7 +18,7 @@
           <li><a href="#">AthenaEdu</a></li>
           <li><a href="#">Innovis</a></li>
           <li><a href="#">Contacto</a></li>
-          <li><a href="#" id="login-btn">Iniciar sesión</a></li>
+          <a href="#" id="login-btn" class="text-white hover:underline">Iniciar sesión</a>
         </ul>
       </nav>
       
@@ -326,19 +326,19 @@
   <!-- Script para la interacción -->
   <script src="js/script.js"></script>
   
-<!-- Modal de Iniciar Sesión -->
-<div id="auth-modal" class="auth-modal hidden">
-    <div class="auth-content">
-      <span id="close-auth" class="close-btn">&times;</span>
-      <h2>Iniciar Sesión</h2>
-      <form id="login-form">
-        <input type="email" id="login-email" placeholder="Correo electrónico" required />
-        <input type="password" id="login-password" placeholder="Contraseña" required />
-        <button type="submit">Entrar</button>
+<!-- Modal de Inicio de Sesión / Registro -->
+<div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg w-80 relative">
+      <button id="close-auth" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">×</button>
+      <h2 class="text-xl font-semibold mb-4">Iniciar sesión / Crear cuenta</h2>
+      <form id="auth-form">
+        <input type="email" placeholder="Correo electrónico" class="w-full mb-3 px-3 py-2 border rounded" required>
+        <input type="password" placeholder="Contraseña" class="w-full mb-3 px-3 py-2 border rounded" required>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Entrar</button>
       </form>
-      <p>¿No tienes cuenta? <a href="#" id="show-register">Crea una aquí</a></p>
     </div>
   </div>
   
+  <script src="js/script.js"></script>
 </body>
 </html>
