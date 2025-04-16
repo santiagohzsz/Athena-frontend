@@ -1097,89 +1097,61 @@ p {
   }
 }
 
-/* Modal general */
 .auth-modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 10, 20, 0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .auth-modal.hidden {
   display: none;
 }
 
-.auth-box {
-  background: #ffffff;
-  color: #333;
-  padding: 30px;
-  border-radius: 12px;
+.auth-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
   width: 90%;
   max-width: 400px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
   position: relative;
-  text-align: center;
-  animation: fadeIn 0.3s ease-in-out;
+  animation: slideIn 0.3s ease-out;
 }
 
-.close-auth {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #999;
+.auth-content h2 {
+  margin-bottom: 1rem;
 }
 
-.auth-box h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #0a0a23;
-}
-
-#auth-form input {
+.auth-content input {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 5px;
 }
 
-#auth-form button {
+.auth-content button {
   width: 100%;
-  padding: 12px;
-  background: #0a0a23;
-  color: #fff;
+  padding: 0.8rem;
+  background-color: #4CAF50;
+  color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s ease;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-#auth-form button:hover {
-  background: #1c1c3a;
-}
-
-.switch-auth {
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-.switch-auth a {
-  color: #0a0a23;
-  text-decoration: underline;
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 24px;
   cursor: pointer;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes slideIn {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }

@@ -326,21 +326,17 @@
   <!-- Script para la interacción -->
   <script src="js/script.js"></script>
   
-<!-- Modal de Inicio de Sesión / Registro -->
-<div class="auth-modal hidden" id="auth-modal">
-    <div class="auth-box">
-      <span class="close-auth" id="close-auth">&times;</span>
-      <h2 id="auth-title">Iniciar Sesión</h2>
-      
-      <form id="auth-form">
-        <input type="email" id="auth-email" placeholder="Correo electrónico" required>
-        <input type="password" id="auth-password" placeholder="Contraseña" required>
-        <button type="submit" id="auth-submit">Entrar</button>
+<!-- Modal de Iniciar Sesión -->
+<div id="auth-modal" class="auth-modal hidden">
+    <div class="auth-content">
+      <span id="close-auth" class="close-btn">&times;</span>
+      <h2>Iniciar Sesión</h2>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="Correo electrónico" required />
+        <input type="password" id="login-password" placeholder="Contraseña" required />
+        <button type="submit">Entrar</button>
       </form>
-  
-      <p class="switch-auth">
-        ¿No tienes cuenta? <a href="#" id="switch-to-register">Crear una</a>
-      </p>
+      <p>¿No tienes cuenta? <a href="#" id="show-register">Crea una aquí</a></p>
     </div>
   </div>
   
