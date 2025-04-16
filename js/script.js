@@ -97,5 +97,49 @@ hamburger.addEventListener("click", () => {
   }
 });
 
-    
+// Modal de login/registro
+const authModal = document.getElementById("auth-modal");
+const loginBtn = document.getElementById("login-btn");
+const closeAuth = document.getElementById("close-auth");
+const switchToRegister = document.getElementById("switch-to-register");
+const authTitle = document.getElementById("auth-title");
+const authSubmit = document.getElementById("auth-submit");
+const switchAuthText = document.querySelector(".switch-auth");
+
+// Estado: login o register
+let isLogin = true;
+
+loginBtn.addEventListener("click", () => {
+  authModal.classList.remove("hidden");
+});
+
+closeAuth.addEventListener("click", () => {
+  authModal.classList.add("hidden");
+});
+
+// Cambiar entre login y registro
+switchToRegister.addEventListener("click", (e) => {
+  e.preventDefault();
+  isLogin = !isLogin;
+
+  authTitle.textContent = isLogin ? "Iniciar Sesión" : "Crear Cuenta";
+  authSubmit.textContent = isLogin ? "Entrar" : "Registrarse";
+  switchAuthText.innerHTML = isLogin
+    ? '¿No tienes cuenta? <a href="#" id="switch-to-register">Crear una</a>'
+    : '¿Ya tienes cuenta? <a href="#" id="switch-to-register">Iniciar sesión</a>';
+
+  // Reasignar evento porque se reemplaza el innerHTML
+  document.getElementById("switch-to-register").addEventListener("click", (e) => {
+    e.preventDefault();
+    switchToRegister.click();
+  });
+});
+
+// Por ahora, solo previene recarga
+document.getElementById("auth-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert(isLogin ? "Iniciando sesión..." : "Creando cuenta...");
+  authModal.classList.add("hidden");
+});
+
   
