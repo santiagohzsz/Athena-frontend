@@ -97,37 +97,40 @@ hamburger.addEventListener("click", () => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Navbar responsive toggle
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  document.addEventListener('DOMContentLoaded', function () {
+    const loginBtn = document.getElementById('login-btn');
+    const loginModal = document.getElementById('login-modal');
+    const closeModal = document.getElementById('close-modal');
 
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  }
-
-  // Mostrar modal de inicio de sesión
-  const loginBtn = document.getElementById('login-btn');
-  const authModal = document.getElementById('auth-modal');
-  const closeAuth = document.getElementById('close-auth');
-
-  if (loginBtn && authModal && closeAuth) {
-    loginBtn.addEventListener('click', (e) => {
+    loginBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      authModal.classList.remove('hidden');
+      loginModal.classList.remove('hidden');
     });
 
-    closeAuth.addEventListener('click', () => {
-      authModal.classList.add('hidden');
+    closeModal.addEventListener('click', function () {
+      loginModal.classList.add('hidden');
     });
 
-    // También cerramos el modal si se hace clic fuera del contenido
-    window.addEventListener('click', (event) => {
-      if (event.target === authModal) {
-        authModal.classList.add('hidden');
+    window.addEventListener('click', function (e) {
+      if (e.target === loginModal) {
+        loginModal.classList.add('hidden');
       }
     });
-  }
-});
+  });
+
+function switchToRegister() {
+  document.querySelector(".login-form").classList.add("hidden");
+  document.querySelector(".register-form").classList.remove("hidden");
+}
+
+function switchToLogin() {
+  document.querySelector(".register-form").classList.add("hidden");
+  document.querySelector(".login-form").classList.remove("hidden");
+}
+
+function closeAuthModal() {
+  document.getElementById("login-modal").classList.add("hidden");
+
+  document.querySelector(".login-form").classList.remove("hidden");
+  document.querySelector(".register-form").classList.add("hidden");
+}
