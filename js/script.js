@@ -74,13 +74,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
-
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-});
-
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+  
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    } else {
+      console.error("No se encontró el botón hamburger o el menú de navegación.");
+    }
+  });
+  
+  
   // 📥 Desde el showcase
   if (showcaseBtn && showcaseInput) {
     showcaseBtn.addEventListener("click", () => {
