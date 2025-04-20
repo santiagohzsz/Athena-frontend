@@ -74,20 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
-  
-    if (hamburger && navLinks) {
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-    } else {
-      console.error("No se encontró el botón hamburger o el menú de navegación.");
-    }
-  });
-  
-  
   // 📥 Desde el showcase
   if (showcaseBtn && showcaseInput) {
     showcaseBtn.addEventListener("click", () => {
@@ -104,26 +90,44 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const loginBtn = document.getElementById('login-btn');
-    const loginModal = document.getElementById('login-modal');
-    const closeModal = document.getElementById('close-modal');
+// script.js
 
+document.addEventListener('DOMContentLoaded', function () {
+  const loginBtn = document.getElementById("login-btn");
+  const loginModal = document.getElementById('login-modal');
+  const closeModal = document.getElementById('close-modal');
+  const registerBtn = document.getElementById('register-btn'); // Nuevo botón
+
+  if (loginBtn && loginModal) {
     loginBtn.addEventListener('click', function (e) {
       e.preventDefault();
       loginModal.classList.remove('hidden');
     });
+  } else {
+    console.error("Error: No se encontró el botón o el modal de inicio de sesión.");
+  }
 
-    closeModal.addEventListener('click', function () {
-      loginModal.classList.add('hidden');
+  if (closeModal && loginModal) {
+    closeModal.addEventListener('click', function (e) {
+      e.preventDefault();
+      closeAuthModal();
     });
+  } else {
+    console.error("Error: No se encontró el botón de cerrar el modal.");
+  }
 
-    window.addEventListener('click', function (e) {
-      if (e.target === loginModal) {
-        loginModal.classList.add('hidden');
-      }
+  // Agrega el listener para el botón "Registrarse"
+  // (Este listener no hace nada, ya que la lógica de registro está en auth.js)
+  if (registerBtn) {
+    registerBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // No necesitas hacer nada aquí
     });
-  });
+  } else {
+    console.error("Error: No se encontró el botón de registrarse.");
+  }
+});
 
 function switchToRegister() {
   document.querySelector(".login-form").classList.add("hidden");
@@ -136,8 +140,22 @@ function switchToLogin() {
 }
 
 function closeAuthModal() {
-  document.getElementById("login-modal").classList.add("hidden");
+  const loginModal = document.getElementById("login-modal");
+  loginModal.classList.add("hidden");
 
   document.querySelector(".login-form").classList.remove("hidden");
   document.querySelector(".register-form").classList.add("hidden");
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburgerBtn = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  if (hamburgerBtn && navLinks) {
+    hamburgerBtn.addEventListener('click', function() {
+      navLinks.classList.toggle('show'); // Agrega o elimina la clase 'show'
+    });
+  } else {
+    console.error("No se encontró el botón del menú hamburguesa o los enlaces de navegación.");
+  }
+});

@@ -1201,3 +1201,23 @@ p {
   from { transform: translateY(-30px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Oculta el menú por defecto */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Ajusta según la altura de tu barra de navegación */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Asegura que el menú esté por encima de otros elementos */
+  }
+
+  .nav-links.show {
+    display: flex; /* Muestra el menú cuando tiene la clase 'show' */
+  }
+}

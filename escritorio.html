@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escritorio | AthenaEdu</title>
+  <link rel="stylesheet" href="./css/escritorio.css" />
+
+  <!-- Iconos de Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="logo">AthenaEdu</div>
+    <div class="user-info">Bienvenido, <span id="user-name"></span></div>
+  </header>
+
+  <!-- Dashboard Layout -->
+  <div class="dashboard">
+    <nav class="sidebar">
+      <ul>
+        <li class="active">
+          <span class="material-icons-outlined">dashboard</span>
+          <a href="#">Inicio</a>
+        </li>
+        <li>
+          <span class="material-icons-outlined">menu_book</span>
+          <a href="#">Cursos</a>
+        </li>
+        <li>
+          <span class="material-icons-outlined">bar_chart</span>
+          <a href="#">Progreso</a>
+        </li>
+        <li>
+          <span class="material-icons-outlined">folder</span>
+          <a href="#">Mis Documentos</a>
+        </li>
+        <li>
+          <span class="material-icons-outlined">note</span>
+          <a href="#">Apuntes</a>
+        </li>
+        <li>
+          <span class="material-icons-outlined">event</span>
+          <a href="#" id="calendar-btn"><i class="fas fa-calendar-alt"></i> Calendario</a>
+        </li>
+        <li>
+          <span class="material-icons-outlined">check_circle</span>
+          <a href="#">Tareas</a>
+        </li>
+        <li>
+          <span class="material-icons-outlined">settings</span>
+          <a href="#">Configuración</a>
+        </li>
+        <li>
+          <a href="#" id="chat-btn" class="nav-icon">
+            <img src="https://img.icons8.com/ios-filled/24/000000/chat--v1.png" alt="Chat Icon" />
+            Chat Innovis
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Calendario (oculto por defecto) -->
+<div id="calendar-container" class="calendar-container hidden">
+  <div class="calendar-header">
+    <h2>Calendario</h2>
+    <div class="calendar-controls">
+      <button id="prev-month">&lt;</button>
+      <span id="month-year"></span>
+      <button id="next-month">&gt;</button>
+    </div>
+  </div>
+
+  <div id="calendar-grid" class="calendar-grid"></div>
+
+  <div class="calendar-sidebar">
+    <h3>Agregar Evento</h3>
+    <form id="event-form">
+      <input type="text" id="event-title" placeholder="Título del evento" required />
+      <input type="date" id="event-date" required />
+      <textarea id="event-desc" placeholder="Descripción (opcional)"></textarea>
+      <button type="submit">Guardar evento</button>
+    </form>
+
+    <h3 style="margin-top: 2rem;">Eventos del día</h3>
+    <ul id="event-list"></ul>
+  </div>
+</div>
+
+<div id="chat-innovis" class="chat-container draggable">
+  <div class="chat-header" id="chat-header">
+    <h2>Chat Innovis</h2>
+    <button id="minimize-chat-btn" title="Minimizar">&#x2013;</button>
+  </div>
+
+  <div id="chat-messages" class="chat-box"></div>
+
+  <form id="chat-form" class="chat-form">
+    <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." autocomplete="off" required />
+    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+  </form>
+</div>
+
+    
+    <div id="main-panel">
+    <main class="main-content">
+      <h2>Panel Principal</h2>
+      <p>Desde aquí podrás acceder a tus cursos, ver tu progreso, tomar apuntes y gestionar tu día a día.</p>
+    </main>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore-compat.js"></script>
+
+  <script src="./js/firebase.js"></script>
+
+  <script src="./js/escritorio.js"></script>
+</body>
+</html>
