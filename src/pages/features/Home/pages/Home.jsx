@@ -1,7 +1,7 @@
-import AdvancedTech from "../components/AdvancedTech"
-import Contact from "../components/Contact"
-import Features from "../components/Features"
-import Hero from "../components/Hero"
+import AdvancedTech from "../components/sections/AdvancedTech"
+import Contact from "../components/sections/Contact"
+import Features from "../components/sections/Features"
+import Hero from "../components/sections/Hero"
 
 function Home() {
     return (
