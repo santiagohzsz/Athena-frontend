@@ -45,7 +45,7 @@ function Footer() {
                 </div>
             </div>
             <div className="copyright flex justify-center items-center text-neutral-400 bg-neutral-900 border-t border-t-neutral-800 py-6 flex-col gap-4">
-                <p className="text-sm max-sm:text-center">&copy; 2023 Athena Project. Todos los derechos reservados</p>
+                <p className="text-sm max-sm:text-center">&copy; 2025 Athena Project. Todos los derechos reservados</p>
                 <p className="text-sm max-sm:text-center">Made By <a href="https://github.com/JunLovin" target="_blank" className="underline">JunLovin</a> - from <a href="https://syntax-world-workspace.vercel.app" target="_blank" className="underline">Syntax World</a> with ♥️</p>
             </div>
         </>
