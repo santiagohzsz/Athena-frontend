@@ -8,10 +8,18 @@ function Footer() {
                     <img src="athena-project.svg" alt="Athena Project" />
                     <p className="text-neutral-400 max-md:text-center">Innovando el futuro con inteligencia artificial.</p>
                     <ul className="flex gap-4 text-neutral-400 mt-4">
-                        <li className="hover:text-white cursor-pointer"><Twitter /></li>
-                        <li className="hover:text-white cursor-pointer"><Linkedin /></li>
-                        <li className="hover:text-white cursor-pointer"><Github /></li>
-                        <li className="hover:text-white cursor-pointer"><Youtube /></li>
+                        <a href="#" target="_blank">
+                            <li className="hover:text-white cursor-pointer"><Twitter /></li>
+                        </a>
+                        <a href="#" target="_blank">
+                            <li className="hover:text-white cursor-pointer"><Linkedin /></li>
+                        </a>
+                        <a href="https://github.com/santiagohzsz/Athena-frontend" target="_blank">
+                            <li className="hover:text-white cursor-pointer"><Github /></li>
+                        </a>
+                        <a href="#" target="_blank">
+                            <li className="hover:text-white cursor-pointer"><Youtube /></li>
+                        </a>
                     </ul>
                 </div>
                 <div className="second-grid grid grid-cols-3 w-[60%] max-md:grid-cols-1 gap-6">
